@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Home - ABC Retail";
+}
+
+<div class="container py-5">
+    <div class="p-5 mb-5 bg-light rounded-3 shadow-sm text-center">
+        <h1 class="display-4 fw-bold text-primary">Welcome to ABC Retail</h1>
+        <p class="lead text-secondary">Manage customer profiles, store inventory, image assets, and processing queues from a central system.</p>
+        <a asp-controller="Store" asp-action="Index" class="btn btn-warning btn-lg fw-bold mt-2">🛍️ Visit Public Storefront</a>
+    </div>
+
+    <div class="row g-4">
+        <!-- CUSTOMER MANAGEMENT CARD -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0 text-center p-4">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="display-5 text-primary mb-3">👥</div>
+                        <h4 class="card-title fw-bold">Customer Profiles</h4>
+                        <p class="card-text text-muted">Register new customer profiles and maintain the active user registry.</p>
+                    </div>
+                    <a asp-controller="Customer" asp-action="Index" class="btn btn-outline-primary fw-bold mt-3">Manage Customers</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRODUCT CATALOG CARD -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0 text-center p-4">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="display-5 text-success mb-3">📦</div>
+                        <h4 class="card-title fw-bold">Product Catalog</h4>
+                        <p class="card-text text-muted">Add new items to stock, adjust pricing, and manage product images.</p>
+                    </div>
+                    <a asp-controller="Product" asp-action="Index" class="btn btn-outline-success fw-bold mt-3">Manage Products</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ADMIN & ORDERS CARD -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0 text-center p-4">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="display-5 text-dark mb-3">⚙️</div>
+                        <h4 class="card-title fw-bold">Admin & Operations</h4>
+                        <p class="card-text text-muted">Monitor outgoing order queues and view system activity log history.</p>
+                    </div>
+                    <a asp-controller="Admin" asp-action="Index" class="btn btn-outline-dark fw-bold mt-3">Open Admin Portal</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

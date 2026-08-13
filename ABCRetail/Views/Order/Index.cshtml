@@ -1,0 +1,145 @@
+﻿@model IEnumerable<string>
+
+@{
+    ViewData["Title"] = "Order History";
+}
+
+<div class="container py-3">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2 class="fw-bold text-dark mb-0">
+            📋 Order History
+        </h2>
+
+        <a asp-controller="Store"
+           asp-action="Index"
+           class="btn btn-outline-dark fw-semibold">
+            ← Back to Store
+        </a>
+
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show"
+             role="alert">
+
+            @TempData["Success"]
+
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert">
+            </button>
+
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show"
+             role="alert">
+
+            @TempData["Error"]
+
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert">
+            </button>
+
+        </div>
+    }
+
+    <div class="card shadow-sm border-0">
+
+        <div class="card-header bg-dark text-white fw-bold
+                    d-flex justify-content-between align-items-center">
+
+            <span>
+                📦 Azure Queue Storage Orders
+            </span>
+
+            <span class="badge bg-light text-dark fs-6">
+                Total Orders: @(Model?.Count() ?? 0)
+            </span>
+
+        </div>
+
+        <div class="card-body p-0">
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle mb-0">
+
+                    <thead class="table-light">
+
+                        <tr>
+
+                            <th style="width: 8%;" class="text-center">
+                                #
+                            </th>
+
+                            <th>
+                                Order Processing Details
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        @if (Model != null && Model.Any())
+                        {
+                            int index = 1;
+
+                            foreach (var message in Model)
+                            {
+                                <tr>
+
+                                    <td class="fw-bold text-center">
+                                        @index
+                                    </td>
+
+                                    <td>
+
+                                        <span class="badge bg-success me-2">
+                                            Order Queued
+                                        </span>
+
+                                        <code class="text-dark">
+                                            @message
+                                        </code>
+
+                                    </td>
+
+                                </tr>
+
+                                index++;
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+
+                                <td colspan="2"
+                                    class="text-center text-muted py-4">
+
+                                    No orders found in Azure Queue Storage.
+
+                                </td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

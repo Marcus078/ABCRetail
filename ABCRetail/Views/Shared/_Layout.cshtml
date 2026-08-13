@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ABC Retail</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <!-- Brand logo directs to Storefront -->
+                <a class="navbar-brand fw-bold text-warning" asp-controller="Store" asp-action="Index">
+                    🛍️ ABC Retail
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav me-auto">
+                        <!-- 1. CUSTOMER STOREFRONT -->
+                        <li class="nav-item me-2">
+                            <a class="nav-link text-white fw-semibold active" asp-controller="Store" asp-action="Index">
+                                🛒 Storefront
+                            </a>
+                        </li>
+
+                        <!-- 2. MANAGEMENT -->
+                        <li class="nav-item dropdown me-2">
+                            <a class="nav-link dropdown-toggle text-white-50" href="#" id="manageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                📂 Management
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="manageDropdown">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Customer" asp-action="Index">
+                                        👥 Customer Profiles
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Product" asp-action="Index">
+                                        📦 Product Catalog
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- 3. SYSTEM ADMIN -->
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" asp-controller="Admin" asp-action="Index">
+                                ⚙️ Admin Portal
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted text-center py-3 mt-auto">
+        <div class="container">
+            &copy; 2026 - ABC Retail Enterprise System
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
